@@ -39,13 +39,43 @@ export const start = async () => {
     resolvers: {
       Query: {
         cat(_, args) {
-          return { name: args.name, age: 3, owner: {} }
+          // return { name: args.name, age: 3, owner: {} }
+          return {}
         },
         owner(_, args) {
-          return { name: args.name, cat: {} }
+          // return { name: args.name, cat: {} }
+          return {}
+        }
+      },
+      Cat: {
+        name() {
+          return name 'Daryl'
+        },
+        age() {
+          return 2
+        },
+        owner() {
+          return {}
+        }
+      },
+      Owner: {
+        name() {
+          return 'Scott'
+        },
+        cat() {
+          return {}
         }
       }
+      
     },
+    Cat: {
+      name() {
+        return 'Daryl'
+      },
+      age() {
+        return 2
+      }
+    }
     context({ req }) {
       // use the authenticate function from utils to auth req, its Async!
       return { user: null }
