@@ -39,6 +39,7 @@ export const start = async () => {
     resolvers: {
       Query: {
         cat(_, args) {
+          console.log('in cat query')
           // return { name: args.name, age: 3, owner: {} }
           return {}
         },
@@ -49,33 +50,30 @@ export const start = async () => {
       },
       Cat: {
         name() {
-          return name 'Daryl'
+          console.log('in cat name')
+          return 'Daryl'
         },
         age() {
+          console.log('in cat age')
           return 2
         },
         owner() {
+          console.log('in cat owner')
           return {}
         }
       },
       Owner: {
         name() {
+          console.log('in owner name')
           return 'Scott'
         },
         cat() {
+          console.log('in owner cat')
           return {}
         }
       }
-      
     },
-    Cat: {
-      name() {
-        return 'Daryl'
-      },
-      age() {
-        return 2
-      }
-    }
+
     context({ req }) {
       // use the authenticate function from utils to auth req, its Async!
       return { user: null }
